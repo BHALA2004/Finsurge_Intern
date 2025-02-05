@@ -19,7 +19,7 @@ public class FibonacciSeries {
         while (true){
             try{
                 number = Integer.parseInt(scanner.nextLine());
-                if(number>=0){
+                if(number>0){
                     break;
                 }
                 throw new WrongInputException("Invalid Input,Enter Valid one:");
@@ -30,7 +30,7 @@ public class FibonacciSeries {
             }
         }
         for (int i = 0;i<number;i++){
-            System.out.println(fiboSeries(i));
+            System.out.println(i+1+" = "+fiboSeries(i));
         }
     }
 }
