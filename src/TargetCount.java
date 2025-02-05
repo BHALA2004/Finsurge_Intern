@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TotalCounts {
+public class TargetCount {
     public static int count(List<Integer> list,int target){
         int count = 0;
         for (int i : list){
