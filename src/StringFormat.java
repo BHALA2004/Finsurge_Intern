@@ -6,6 +6,8 @@ public class StringFormat {
         String string = "Bala %s %.2f";
         System.out.println(String.format(string,"BAla",70.1232));
 
+
+
             //Illegal format Exception
             System.out.println(String.format(string, 23, "Bala"));
 
