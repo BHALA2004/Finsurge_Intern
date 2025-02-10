@@ -8,7 +8,7 @@ public class ArmStrongNumber {
         int sum = 0;int copyInput = 0;
         System.out.print("Enter total elements:");
         String input ;
-        String inputLengthFinding ;
+        String inputLengthFinding = new String() ;
         int lengthOfString=0;
         boolean flag = false;
         int totalNumber = 0;
@@ -21,6 +21,7 @@ public class ArmStrongNumber {
                 if(totalNumber>0){
                     inputLengthFinding=String.valueOf(totalNumber);
                     lengthOfString=inputLengthFinding.length();
+                    copyInput=Integer.parseInt(inputLengthFinding);
                     flag=true;
                 }
                 else {

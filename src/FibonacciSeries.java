@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class FibonacciSeries {
@@ -6,7 +7,7 @@ public class FibonacciSeries {
             super(message);
         }
     }
-    public static int fiboSeries(int n){
+    public static long fiboSeries(int n){
         if(n==1 || n==0){
             return n;
         }
