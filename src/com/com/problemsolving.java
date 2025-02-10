@@ -5,6 +5,50 @@ import java.util.*;
 public class problemsolving {
      static Scanner scanner = new Scanner(System.in);
 
+     public static void armStrongNumber(){
+         int sum = 0;int copyInput = 0;
+         System.out.print("Enter total elements:");
+         String input ;
+         String inputLengthFinding = new String() ;
+         int lengthOfString=0;
+         boolean flag = false;
+         int totalNumber = 0;
+
+
+         while (flag==false){
+             input =scanner.next();
+             if(validate(input)){
+                 totalNumber = Integer.parseInt(input);
+                 if(totalNumber>0){
+                     inputLengthFinding=String.valueOf(totalNumber);
+                     lengthOfString=inputLengthFinding.length();
+                     copyInput=Integer.parseInt(inputLengthFinding);
+                     flag=true;
+                 }
+                 else {
+                     System.out.println("Enter Valid :");
+                 }
+
+             }
+             else {
+                 flag=false;
+             }
+         }
+
+         while (totalNumber>0){
+             int remainder = totalNumber%10;
+             sum+=Math.pow(remainder,lengthOfString);
+             totalNumber/=10;
+         }
+
+         if(copyInput==sum){
+             System.out.println("Its an ArmStrong Number");
+         }
+         else {
+             System.out.println("Its Not an Armstrong Number");
+         }
+     }
+
     public static boolean validate(String value){
         int res ;
         try {
@@ -73,10 +117,14 @@ public class problemsolving {
     }
 
     public static void finocciSeries(){
+
         System.out.println("Enter Number:");
+
         int number;
         while (true){
             try{
+
+
                 number = Integer.parseInt(scanner.nextLine());
                 if(number>0){
                     break;
@@ -105,47 +153,29 @@ public class problemsolving {
 
 
     public static void sumOfDigits(){
-
-        int sum = 0;int copyInput = 0;
-        System.out.print("Enter total elements:");
         String input ;
-        String inputLengthFinding = new String() ;
-        int lengthOfString=0;
+
+        System.out.println("Enter Number:");
         boolean flag = false;
-        int totalNumber = 0;
-
-
+        int sum = 0;
         while (flag==false){
-            input =scanner.next();
+            input=scanner.next();
             if(validate(input)){
-                totalNumber = Integer.parseInt(input);
-                if(totalNumber>0){
-                    inputLengthFinding=String.valueOf(totalNumber);
-                    lengthOfString=inputLengthFinding.length();
-                    copyInput=Integer.parseInt(inputLengthFinding);
-                    flag=true;
+                int totalNumber = Integer.parseInt(input);
+                if(totalNumber>=0){
+                    System.out.println(calcSum(totalNumber));
                 }
                 else {
-                    System.out.println("Enter Valid :");
-                }
+                    String convert = String.valueOf(totalNumber).substring(1);
+                    int convertingToInt = Integer.parseInt(convert);
+                    System.out.println(calcSum(convertingToInt));
 
+                }
+                flag=true;
             }
             else {
                 flag=false;
             }
-        }
-
-        while (totalNumber>0){
-            int remainder = totalNumber%10;
-            sum+=Math.pow(remainder,lengthOfString);
-            totalNumber/=10;
-        }
-
-        if(copyInput==sum){
-            System.out.println("Its an ArmStrong Number");
-        }
-        else {
-            System.out.println("Its Not an Armstrong Number");
         }
     }
 
@@ -549,6 +579,57 @@ public class problemsolving {
 
     }
     public static void main(String[] args) {
+
+        System.out.println("1.ArmStrong\n2.Fibonocci Series\n3.Average\n4.Find Big and Small\5.FindIndex\n6.Find Middle Element\n7.Replace Number\n8.Reverse Order\n9.Sum of Digits\n10.Target Count\n11.Total Count\n12.Exit\n");
+
+        boolean enter = false;
+        while (!enter){
+            System.out.println("Enter Option:");
+            String  option = scanner.next();
+            if(validate(option) && Integer.parseInt(option)>0 && Integer.parseInt(option)<13){
+               switch (Integer.parseInt(option)){
+                   case 1:
+                       armStrongNumber();
+                       break;
+                   case 2:
+                       System.out.println("Fibonocci Series");
+                       scanner.nextLine();
+                       finocciSeries();
+                       break;
+                   case 3:
+                       average();
+                       break;
+                   case 4:
+                       bigAndSmall();
+                       break;
+                   case 5:
+                       findIndexPosition();
+                       break;
+                   case 6:
+                       midElement();
+                       break;
+                   case 7:
+                       replaceNumber();
+                       break;
+                   case 8:
+                       reverseOrder();
+                       break;
+                   case 9:
+                       sumOfDigits();
+                       break;
+                   case 10:
+                       targetCount();
+                       break;
+                   case 11:
+                       totalCountNumber();
+                       break;
+                   default:
+                       enter=true;
+                       break;
+
+               }
+            }
+        }
 
     }
 }
