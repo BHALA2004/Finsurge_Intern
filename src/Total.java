@@ -1,9 +1,19 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class TotalCount {
+public class Total {
+    public static int count(List<Integer> list,int target){
+        int count = 0;
+        for (int i : list){
+            if(i==target){
+                count++;
+            }
+        }
+        return count;
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Map<Integer,Integer> hashMap = new HashMap<>();
         Validation validation = new Validation();
         List<Integer> list = new ArrayList<>();
         System.out.print("Enter total elements:");
@@ -27,22 +37,35 @@ public class TotalCount {
             }
         }
         for(int i = 0;i<totalNumber;i++){
+
             boolean xor = false;
             while (xor==false){
                 String str = scanner.next();
                 if(validation.validate(str)){
-                    hashMap.put(Integer.parseInt(str),hashMap.getOrDefault(Integer.parseInt(str),0)+1);
+                    list.add(Integer.parseInt(str));
                     xor=true;
                 }
                 else {
                     xor=false;
                 }
             }
+
+
         }
 
-        for(Map.Entry<Integer,Integer> hash : hashMap.entrySet()){
-            System.out.println(hash.getKey()+" = "+hash.getValue());
+        System.out.println("Enter Target:");
+        int target = 0;
+        flag=false;
+        while (flag==false){
+            String value = scanner.next();
+            if(validation.validate(value)){
+                target=Integer.parseInt(value);
+                flag=true;
+            }
+            else {
+                flag=false;
+            }
         }
-
+        System.out.println("Target Count  = "+count(list,target));
     }
 }

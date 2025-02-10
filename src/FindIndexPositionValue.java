@@ -53,7 +53,7 @@ public class FindIndexPositionValue {
             }
         }
 
-        System.out.println(findIndex(hashMap,storeTarget));
+        System.out.println("Index = "+findIndex(hashMap,storeTarget));
 
     }
 }

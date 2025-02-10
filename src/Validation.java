@@ -9,7 +9,7 @@ public class Validation {
             return true;
         }
         catch (Exception e){
-            System.out.println("Enter Valid input");
+            System.out.println("Enter Valid input:");
             return false;
         }
     }
