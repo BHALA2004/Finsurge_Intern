@@ -1,4 +1,4 @@
-package com.accessspecifier.two;
+package com.accessspecifier.Default;
 
 public class ProtectedClassAnotherPackage {
     protected static int value = 5;

@@ -1,4 +1,4 @@
-package com.accessspecifier.three;
+package com.accessspecifier.Protected;
 
 public class Protect extends ProtectSubclass {
 

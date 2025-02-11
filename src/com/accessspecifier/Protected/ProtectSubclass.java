@@ -1,6 +1,6 @@
-package com.accessspecifier.three;
+package com.accessspecifier.Protected;
 
-import com.accessspecifier.two.ProtectedClassAnotherPackage;
+import com.accessspecifier.Default.ProtectedClassAnotherPackage;
 
 public class ProtectSubclass extends ProtectedClassAnotherPackage {
     protected static int integer = 5;

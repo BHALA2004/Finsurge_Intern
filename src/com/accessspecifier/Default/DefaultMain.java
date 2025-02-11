@@ -1,4 +1,4 @@
-package com.accessspecifier.two;
+package com.accessspecifier.Default;
 
 public class DefaultMain {
     public static void main(String[] args) {

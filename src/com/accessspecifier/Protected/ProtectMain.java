@@ -1,6 +1,4 @@
-package com.accessspecifier.three;
-
-import com.accessspecifier.two.ProtectedClassAnotherPackage;
+package com.accessspecifier.Protected;
 
 public class ProtectMain {
     public static void main(String[] args) {

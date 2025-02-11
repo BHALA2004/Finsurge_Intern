@@ -1,6 +1,4 @@
-package com.accessspecifier.two;
-
-import com.accessspecifier.one.Private;
+package com.accessspecifier.Default;
 
 public class DefaultSubclass extends Default {
 
