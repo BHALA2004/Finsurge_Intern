@@ -2,7 +2,7 @@ package com.implementation;
 
 public class Demo2 {
     static int increment = 0;
-    static int decrement  = 0;
+    static int decrement  = 100;
         public static String switchCaseImplementation(int day){
             switch (day){
                 case 0:
@@ -25,11 +25,13 @@ public class Demo2 {
         }
 
         public static int addValue(){
+            System.out.println("Previous static Increment Value = "+increment);
             increment++;
             return increment;
         }
 
     public static int subValue(){
+        System.out.println("Previous static Decrement Value = "+decrement);
         decrement--;
         return decrement;
     }
