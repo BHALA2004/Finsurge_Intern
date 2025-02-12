@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-class ComparatorImplement implements Comparator<Students> {
+public class ComparatorImplement implements Comparator<Students> {
    public int compare(Students s1,Students s2){
        return s1.studentName.compareTo(s2.studentName);
    }
