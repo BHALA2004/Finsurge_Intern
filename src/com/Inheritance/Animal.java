@@ -2,7 +2,7 @@ package com.Inheritance;
 
 public class Animal {
     public  void sound(){
-        System.out.println("Animal Method");
+        System.out.println("Animal.java Method");
     }
 }
 class Dog extends Animal{

@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Animal {
     Animal() {
         System.out.println("Animal Constructor");
+
     }
 
     public String twoLines(){
@@ -12,7 +13,7 @@ public class Animal {
 }
 class Dog extends Animal{
     Dog(){
-        super();
+         super();
         System.out.println("Dog Constructor");
     }
 
@@ -23,8 +24,6 @@ class Dog extends Animal{
     public static void main(String[] args) {
         Animal animal=new Dog();
         System.out.println(animal.twoLines());
-
-
-
+        System.out.println(Arrays.toString(args));
     }
 }
