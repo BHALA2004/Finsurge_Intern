@@ -17,7 +17,7 @@ non-sealed public class Bike extends Vehicle {
             System.out.println("Bike Sound");
         }
 }
-non-sealed class Cycle extends Vehicle{
+non-sealed class Cycle extends Vehicle {
 
     public void sound(){
         System.out.println("Cycle Sound");

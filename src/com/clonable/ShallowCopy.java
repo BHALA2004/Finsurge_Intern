@@ -21,7 +21,7 @@ class Person implements Cloneable {
     }
 }
 
-public class Main {
+public class ShallowCopy {
     public static void main(String[] args) throws CloneNotSupportedException {
         Person p1 = new Person("Bob", "New York");
         Person p2 = (Person) p1.clone();  // Cloning

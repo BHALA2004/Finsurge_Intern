@@ -1,4 +1,5 @@
 interface Bala {
+    static int n = 5;
     public static String methog(){
         return "Hai";
     }
