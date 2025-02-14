@@ -62,6 +62,11 @@ public class College implements Cloneable{
 
     public College getCollegeDetails(){
         System.out.println("Enter College Details");
+
+        if (scanner.hasNextLine()) {
+            scanner.nextLine();
+        }
+
         System.out.println("Enter College Name:");
         String collegeName;
         while (true){

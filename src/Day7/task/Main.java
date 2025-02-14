@@ -25,24 +25,34 @@ public class Main {
                 }
             }
             if (optionValue==1){
-
                 College college1 = college.getCollegeDetails();
                 College college2 = college1;
                 College.printCollegeandStudentDetails(college1);
                 college2.collegeName="NEC";
+                college2.collegeCode=8888;
+                college2.student.studentName="Magesh";
+                college2.student.rollNumber=741983l;
+                System.out.println("Shallow Clonning");
                 College.printCollegeandStudentDetails(college1);
                 College.printCollegeandStudentDetails(college2);
 
 
-            } else if (optionValue==2) {
+            }
+
+            else if (optionValue==2) {
                 College newCollege = college.getCollegeDetails();
                 College newCollege1 = (College) newCollege.clone();
                 College.printCollegeandStudentDetails(newCollege);
                 newCollege1.collegeName="NEC";
+                newCollege1.collegeCode=8888;
+                newCollege1.student.studentName="Magesh";
+                newCollege1.student.rollNumber=741983l;
+                System.out.println("Deep Clonning");
                 College.printCollegeandStudentDetails(newCollege);
                 College.printCollegeandStudentDetails(newCollege1);
 
             }
+
             else if(optionValue==3){
                 break;
             } else if (optionValue>=4) {
