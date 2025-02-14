@@ -2,7 +2,7 @@ package Day7.task;
 
 import java.util.Scanner;
 
-public class College {
+public class College implements Cloneable{
     Scanner scanner = new Scanner(System.in);
     static int collgeId = 0;
     int id;
@@ -65,7 +65,7 @@ public class College {
         System.out.println("Enter College Name:");
         String collegeName;
         while (true){
-            collegeName=scanner.next();
+            collegeName=scanner.nextLine();
             if(Validate.validateCollegeName(collegeName)){
                 setCollegeName(collegeName);
                 break;
@@ -74,7 +74,6 @@ public class College {
                 System.out.println("Invalid!,Enter Valid:");
             }
         }
-        scanner.nextLine();
         System.out.println("Enter College code:");
         String tempcollegeCode;
         int collegeCode=0;
@@ -108,4 +107,33 @@ public class College {
         return new College(this.collegeName,this.collegeCode,this.collegeLocation,this.student);
 
     }
+
+    public static void printCollegeandStudentDetails(College collegeDetails) {
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("College Details:");
+        System.out.println("College Id       : " + collegeDetails.id);
+        System.out.println("College Name     : " + collegeDetails.collegeName);
+        System.out.println("College Code     : " + collegeDetails.collegeCode);
+        System.out.println("College Location : " + collegeDetails.collegeLocation);
+        System.out.println("\nStudent Details:");
+        System.out.println("Student Id       : " + collegeDetails.student.id);
+        System.out.println("Student Name     : " + collegeDetails.student.studentName);
+        System.out.println("Student Roll No  : " + collegeDetails.student.rollNumber);
+        System.out.println("\nStudent Marks:");
+        System.out.println("Mark 1          : " + collegeDetails.student.studentMarkList.get(0));
+        System.out.println("Mark 2          : " + collegeDetails.student.studentMarkList.get(1));
+        System.out.println("Mark 3          : " + collegeDetails.student.studentMarkList.get(2));
+        System.out.println("Mark 4          : " + collegeDetails.student.studentMarkList.get(3));
+        System.out.println("Mark 5          : " + collegeDetails.student.studentMarkList.get(4));
+        System.out.println("\nPercentage      : " + collegeDetails.student.percentage);
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        College college = (College) super.clone();
+        college.student = (Student)this.student.clone();
+        return college;
+    }
+
 }

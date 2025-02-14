@@ -5,13 +5,13 @@ import java.util.regex.Pattern;
 
 public class Validate {
     public static boolean validateCollegeName(String collegeName){
-        Pattern pattern = Pattern.compile("^[A-Z][a-z]+");
+        Pattern pattern = Pattern.compile("^([A-Z][a-z]*)+( [A-Z][a-z]*)*$");
         Matcher matcher = pattern.matcher(collegeName);
         return matcher.matches();
     }
     public static boolean validateCollegeCode(String collegeCode){
         int collegeCodeNow = 0;
-            Pattern pattern = Pattern.compile("(\\d{4,6})*");
+            Pattern pattern = Pattern.compile("(\\d{4,6})");
             Matcher matcher = pattern.matcher(collegeCode);
             return matcher.matches();
     }

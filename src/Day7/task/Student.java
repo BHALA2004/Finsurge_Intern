@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Student {
+public class Student implements Cloneable{
     Scanner scanner = new Scanner(System.in);
     static int studentId = 0;
 
@@ -134,6 +134,11 @@ public class Student {
 
         return new Student(this.studentName,this.rollNumber,this.studentMarkList,this.percentage);
 
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        return new Student(this.studentName,this.rollNumber,this.studentMarkList,this.percentage);
     }
 
 }
