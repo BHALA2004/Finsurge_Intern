@@ -1,12 +1,10 @@
-package Day8;
+package Day8.Date;
 
 import java.math.BigInteger;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class DateImplementation {
