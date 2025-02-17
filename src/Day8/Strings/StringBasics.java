@@ -3,7 +3,7 @@ package Day8.Strings;
 public class StringBasics {
     public static void main(String[] args) {
         String s = "Bala";
-        String m = "mani";
+        String m = "Bala";
         System.out.println("char At ="+s.charAt(2));
         System.out.println("Length = "+s.length());
         System.out.println("substring = "+s.substring(1));
