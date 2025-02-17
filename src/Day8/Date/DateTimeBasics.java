@@ -2,6 +2,7 @@ package Day8.Date;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class DateTimeBasics {
     public static void main(String[] args) {
@@ -59,5 +60,15 @@ public class DateTimeBasics {
         //Instant
         Instant instant = Instant.now();
         System.out.println(instant);
+
+
+        LocalDate date = LocalDate.now();
+        System.out.println("Yesterday = "+date.minusDays(1));
+
+        System.out.println("Current day = "+LocalDate.now());
+
+        System.out.println("Tomorrow = "+date.plusDays(1));
+
+
     }
 }

@@ -24,10 +24,10 @@ public class DateImplementation {
             }
         }
 
-        long seconds = bigInteger.longValueExact();
+        long seconds = bigInteger.longValue();
         Instant instant = Instant.ofEpochMilli(seconds);
 
-        LocalDateTime localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime localDateTime = instant.atZone(ZoneId.of("UTC")).toLocalDateTime();
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String date = localDateTime.format(dateTimeFormatter);
@@ -46,10 +46,6 @@ public class DateImplementation {
         System.out.println(date4);
 
         System.out.println(localDateTime.getMonth()+" "+localDateTime.getDayOfMonth()+","+localDateTime.getYear());
-
-
-
-
 
 
     }
