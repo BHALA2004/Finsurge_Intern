@@ -1,7 +1,5 @@
 package Day8.Strings;
 
-import Day8.Date.Validate;
-
 import java.util.*;
 
 class StringMethods{
@@ -71,7 +69,7 @@ public class StringImplementation {
         String string = scanner.nextLine();
         System.out.println("1.Count Vowels\n"+"2.Find Upper Case Character\n"+"3.Find Lower Case Charcter\n"+"4.Find Particular Character Count\n"+"5.Find Blank Space Count\n"+"Exit\n");
         String option;
-        int optionValue = 0;
+        int optionValue ;
         while (true) {
             System.out.println("Enter Option:");
             while (true) {
@@ -85,7 +83,7 @@ public class StringImplementation {
                 }
             }
             if (optionValue == 1) {
-                System.out.println("Count Vowels = " + StringMethods.countVowels(string));
+                System.out.println("Count Vowels = "+ StringMethods.countVowels(string));
             } else if (optionValue == 2) {
                 StringMethods.findUpperCaseCharacter(string);
             } else if (optionValue == 3) {
@@ -95,7 +93,7 @@ public class StringImplementation {
                 scanner.nextLine(); // Consume leftover newline
 
                 String k;
-                char m = 0;
+                char m ;
                 while (true) {
                     k = scanner.next();
                     if (k.matches("^.$")) {  // Corrected regex to check a single alphabet character
@@ -117,6 +115,5 @@ public class StringImplementation {
                 System.out.println("Invalid,Enter Valid Number:");
             }
         }
-
     }
 }

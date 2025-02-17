@@ -12,7 +12,8 @@ public class StringBasics {
         System.out.println(s.lastIndexOf('a'));
         System.out.println("Contains = "+s.contains("al"));
         System.out.println("replace ="+s.replace('a','0'));
-        System.out.println(s.replace("al","me"));
+        String s2 = "kmksnkmknkoeMLMVMK";
+        System.out.println(s2.replace("km","//"));
         //s=s+s.replace("al","me");
 
         System.out.println("Equals ="+"Bala".equals(s));
@@ -24,6 +25,9 @@ public class StringBasics {
         System.out.println("Compare = "+s.compareTo("Bala"));
         System.out.println(s);
         System.out.println(m==s);
+
+        String s1 = "Venugopanukfjdknujqnnuqjbnnul";
+        System.out.println(s1.replaceAll("nu","???"));
 
     }
 }
