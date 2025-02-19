@@ -102,13 +102,17 @@ public class PersonDetails{
         while (true){
             try {
                 personIncome = scanner.nextLong();
-                if(calculateSuggestedLoan(personIncome)!=0){
-                    setPersonIncomeparent(personIncome);
-                    System.out.println("Loan Sanctioned to around range of "+calculateSuggestedLoan(personIncome));
-                    break;
+                if(personIncome>9999) {
+                    if (calculateSuggestedLoan(personIncome) != 0) {
+                        setPersonIncomeparent(personIncome);
+                        System.out.println("Loan Sanctioned to around range of " + calculateSuggestedLoan(personIncome));
+                        break;
+                    } else {
+                        System.out.println("Loan Not Provided Income Low");
+                    }
                 }
                 else {
-                    System.out.println("Loan Not Provided Income Low");
+                    System.out.println("Income Too Low!");
                 }
             }
             catch (Exception e){
