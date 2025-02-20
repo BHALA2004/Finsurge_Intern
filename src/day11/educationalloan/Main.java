@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         CalculationImplementation calculationImplementation = new CalculationImplementation();
         List<BankDetails> bankDetailsList = new ArrayList<>();
-        for (int i = 0;i<4;i++){
+        for (int i = 0;i<1;i++){
             BankDetails bankDetails1 = calculationImplementation.getBankDetails();
             bankDetailsList.add(bankDetails1);
         }

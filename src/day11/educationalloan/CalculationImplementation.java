@@ -160,6 +160,12 @@ public class CalculationImplementation extends Calculation{
         System.out.printf("%-20s: %c%d\n", "Loan Amount", '₹', studentDetails.getLoanAmount());
         System.out.printf("%-20s: %.2f%c\n", "Interest Percent", studentDetails.getInterestPercent(), '%');
         System.out.printf("%-20s: %d%s\n", "Loan Duration", studentDetails.getLoanYears(), " yrs");
+        if(studentDetails.getLoanYears()<hashMapDuration.get(studentDetails.getStudentCourseName())){
+            System.out.printf("%-20s: %d%s\n", "years to be Paid", 0, " yrs");
+        }
+        else {
+            System.out.printf("%-20s: %d%s\n", "Years to be Paid", studentDetails.getLoanYears()-hashMapDuration.get(studentDetails.getStudentCourseName()), " yrs");
+        }
         System.out.printf("%-20s: %c%.2f\n", "Interest Per Month", '₹', studentDetails.getInterestPerMonth());
         System.out.printf("%-20s: %c%.2f\n", "Interest Per Year", '₹', studentDetails.getInterestPerYear());
         System.out.printf("%-20s: %c%.2f\n", "Final Amount", '₹', studentDetails.getFinalAmount());
