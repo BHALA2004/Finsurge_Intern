@@ -105,7 +105,7 @@ public class PersonDetails{
                 if(personIncome>9999) {
                     if (calculateSuggestedLoan(personIncome) != 0) {
                         setPersonIncomeparent(personIncome);
-                        System.out.println("Loan Sanctioned to around range of " + calculateSuggestedLoan(personIncome));
+                        System.out.println("Loan Sanctioned to around range of ₹" + calculateSuggestedLoan(personIncome));
                         break;
                     } else {
                         System.out.println("Loan Not Provided Income Low");
@@ -156,14 +156,14 @@ public class PersonDetails{
         System.out.printf("%-20s: %s\n", "Person ID", personDetails.personId);
         System.out.printf("%-20s: %s\n", "Person Name", personDetails.personName);
         System.out.printf("%-20s: %d\n", "Person Age", personDetails.personAge);
-        System.out.printf("%-20s: %d\n", "Person Income", personDetails.personIncomeparent);
+        System.out.printf("%-20s: %c%d\n", "Person Income", '₹',personDetails.personIncomeparent);
         System.out.printf("%-20s: %s\n", "Loan ID", personDetails.loanDetails.getLoanId());
-        System.out.printf("%-20s: %d\n", "Loan Amount", personDetails.loanDetails.getPersonLoanAmount());
-        System.out.printf("%-20s: %d\n", "Interest Percent", personDetails.loanDetails.getInterestPercent());
-        System.out.printf("%-20s: %d\n", "Interest Years", personDetails.loanDetails.getInterestForYears());
-        System.out.printf("%-20s: %.2f\n", "Interest Per Month", personDetails.loanDetails.getPersonIntersetPerMonth());
-        System.out.printf("%-20s: %.2f\n", "Interest Per Year", personDetails.loanDetails.getPersonInterestperYear());
-        System.out.printf("%-20s: %d\n", "Final Amount", personDetails.loanDetails.getFinalAmount());
+        System.out.printf("%-20s: %c%d\n", "Loan Amount", '₹',personDetails.loanDetails.getPersonLoanAmount());
+        System.out.printf("%-20s: %d%c\n", "Interest Percent", personDetails.loanDetails.getInterestPercent(),'%');
+        System.out.printf("%-20s: %d%s\n", "Interest Years", personDetails.loanDetails.getInterestForYears(),"yrs");
+        System.out.printf("%-20s: %c%.2f\n", "Interest Per Month", '₹',personDetails.loanDetails.getPersonIntersetPerMonth());
+        System.out.printf("%-20s: %c%.2f\n", "Interest Per Year",'₹', personDetails.loanDetails.getPersonInterestperYear());
+        System.out.printf("%-20s: %c%d\n", "Final Amount", '₹',personDetails.loanDetails.getFinalAmount());
         System.out.printf("%-20s: %d\n", "Bank ID", personDetails.loanDetails.getBankId());
         System.out.println("Thank You!");
         System.out.println("------------------------------------");

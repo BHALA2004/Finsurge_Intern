@@ -108,22 +108,26 @@ public class LoanDetails extends PersonDetails{
         while (true) {
             if (scanner.hasNextLong()) {
                 loanAmount = scanner.nextLong();
-                double income = PersonDetails.getPersonIncomeparent();
-                double tempLoan = PersonDetails.calculateSuggestedLoan(income);
-                if (loanAmount <= tempLoan) {
-                    setPersonLoanAmount(loanAmount);
-                    break;
-                } else {
-                    System.out.println("Loan Amount too high,Not Possible");
+                if(loanAmount>=10000){
+                    double income = PersonDetails.getPersonIncomeparent();
+                    double tempLoan = PersonDetails.calculateSuggestedLoan(income);
+                    if (loanAmount <= tempLoan) {
+                        setPersonLoanAmount(loanAmount);
+                        break;
+                    } else {
+                        System.out.println("Loan Amount too high,Not Possible");
+                    }
                 }
-//               setPersonLoanAmount(loanAmount);
+                else {
+                    System.out.println("Loan Starts from 10000");
+                }
             } else {
                 System.out.println("Invalid, Enter Valid Loan Amount:");
                 scanner.next(); // Consume the invalid input
             }
         }
         scanner.nextLine();
-        System.out.printf("%-10s %s%n","S.no","Bank Name","Intrest%");
+        System.out.printf("%-10s %s%n","Bank Name","Intrest%");
         for (int i = 0; i < bankDetails.size(); i++) {
             System.out.printf("%-10s %s%n", (i + 1) + ".", bankDetails.get(i).getBankName() + " - " + bankDetails.get(i).getAnnualPercentIncome()+"%");
         }

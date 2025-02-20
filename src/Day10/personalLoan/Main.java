@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<BankDetails> bankDetailsArrayList = new ArrayList<>();
-        for(int i = 0;i<1;i++){
+        for(int i = 0;i<4;i++){
             System.out.println("Bank Name:");
             String bankName;
             while (true){
