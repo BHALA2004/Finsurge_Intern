@@ -143,10 +143,7 @@ public class CalculationImplementation extends Calculation{
             intrestPerYear=0;
         }
         else if (years>hashMapDuration.get(studentCourseName)) {
-            System.out.println(years);
-            System.out.println(hashMapDuration.get(studentCourseName));
             value = ((years)-(hashMapDuration.get(studentCourseName)+1))+1;
-            System.out.println(value);
             intrestPerYear=(loanAmount*value*bankPercent)/100;
         }
         float intrestPerMonth = (intrestPerYear)/12;
