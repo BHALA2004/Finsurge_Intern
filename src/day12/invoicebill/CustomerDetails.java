@@ -59,8 +59,9 @@ public class CustomerDetails {
             }
         }
         ElectricityBillDetails electricityBillDetails1 = new ElectricityBillDetails().getElectricityBillDetails();
+        electricityBillDetails1.setBillId(electricityBillDetails1.getBillId()-1);
         customerDetails.setElectricityBillDetails(electricityBillDetails1);
         return customerDetails;
-
     }
+
 }

@@ -19,6 +19,7 @@ public class ElectricityBillDetails {
     }
 
     public ElectricityBillDetails(long customerUnitsUsed, Map<String,Double> unitSeperation) {
+
         this.customerUnitsUsed = customerUnitsUsed;
         this.unitSeperation = unitSeperation;
     }
@@ -54,8 +55,14 @@ public class ElectricityBillDetails {
         while (true){
             try {
                 customerUnits = scanner.nextLong();
-                electricityBillDetails.setCustomerUnitsUsed(customerUnits);
-                break;
+                if(customerUnits>0){
+                    electricityBillDetails.setCustomerUnitsUsed(customerUnits);
+                    break;
+                }
+                else {
+                    System.out.println("Invalid,Enter Valid:");
+                }
+
             }
             catch (Exception e){
                 System.out.println("Invalid,Enter Valid");
