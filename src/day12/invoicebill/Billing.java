@@ -20,14 +20,14 @@ public class Billing implements Billcalculator,BillGenerator{
         } else if (units <= 400) {
             billDetails.put("First 100 Units", 0.0);
             billDetails.put("Next 100 Units:", (100 * 2.25));
-            billDetails.put("Next 200 Units:", (units - 200) * 4.50);
+            billDetails.put("Remaining Units", (units - 200) * 4.50);
             totalAmount = (100 * 2.25) + (units - 200) * 4.50;
             billDetails.put("Total Amount", totalAmount);
         } else if (units <= 500) {
             billDetails.put("First 100 Units", 0.0);
             billDetails.put("Next 100 Units:", (100 * 2.25));
             billDetails.put("Next 200 Units:", (200 * 4.50));
-            billDetails.put("Next 400 Units:", (units - 400) * 6.00);
+            billDetails.put("Remaining Units:", (units - 400) * 6.00);
             totalAmount = (100 * 2.25) + (200 * 4.50) + (units - 400) * 6.00;
             billDetails.put("Total Amount", totalAmount);
         } else {

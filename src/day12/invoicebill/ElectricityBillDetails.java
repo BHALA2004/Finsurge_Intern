@@ -55,17 +55,17 @@ public class ElectricityBillDetails {
         while (true){
             try {
                 customerUnits = scanner.nextLong();
-                if(customerUnits>0){
+                if(customerUnits>=0){
                     electricityBillDetails.setCustomerUnitsUsed(customerUnits);
                     break;
                 }
                 else {
                     System.out.println("Invalid,Enter Valid:");
                 }
-
             }
             catch (Exception e){
-                System.out.println("Invalid,Enter Valid");
+               System.out.println("Invalid,Enter Valid");
+               scanner.next();
             }
         }
         Map<String,Double> hashMap = billing.calculateBill(customerUnits);

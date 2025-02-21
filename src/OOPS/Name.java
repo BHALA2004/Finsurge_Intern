@@ -7,7 +7,9 @@ public interface Name {
     default void maining(){
         System.out.println("Hai");
     }
-    void show();
+    default void show(){
+        System.out.println("heyy");
+    }
 }
 class Naming implements Name{
     @Override
@@ -16,8 +18,11 @@ class Naming implements Name{
     }
 
     public void show(){
-        System.out.println("Hello");
+        System.out.println("njwkldm");
     }
+
+
+
 }
 class Main{
     public static void main(String[] args) {

@@ -9,7 +9,7 @@ public abstract class Parametrized {
 
 class child extends Parametrized{
     child(){
-        super(10);
+        super(11);
     }
     void Hello(){
         System.out.println("hooo");
