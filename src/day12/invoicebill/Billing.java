@@ -5,44 +5,45 @@ import java.util.*;
 public class Billing implements Billcalculator,BillGenerator{
     @Override
     public Map<String, Double> calculateBill(long units) {
-        TreeMap<String, Double> map = new TreeMap<>();
-        Double sum = 0.00;
-        boolean f1 = true;
-        boolean f2 = true;
-        boolean f3 = true;
-        boolean f4 = true;
-            if (units >= 0 && units < 100) {
-                map.put("Total Amount = ", 0.00);
-                return map;
-            }
-        if (units >= 100 && f1) {
-            units -= 100;
-            sum += 0;
-            f1 = false;
-            map.put("100 Units", 0.00);
+        TreeMap<String, Double> billDetails = new TreeMap<>();
+        Double totalAmount = 0.0;
+        // First 100 units are free
+        if (units <= 100) {
+            billDetails.put("First 100 Units", 0.0);
+            totalAmount = 0.0;
+            billDetails.put("Total Amount", totalAmount);
+        } else if (units <= 200) {
+            billDetails.put("First 100 Units", 0.0);
+            billDetails.put("Next 100 Units:", (units - 100) * 2.25);
+            totalAmount = (units - 100) * 2.25;
+            billDetails.put("Total Amount", totalAmount);
+        } else if (units <= 400) {
+            billDetails.put("First 100 Units", 0.0);
+            billDetails.put("Next 100 Units:", (100 * 2.25));
+            billDetails.put("Next 200 Units:", (units - 200) * 4.50);
+            totalAmount = (100 * 2.25) + (units - 200) * 4.50;
+            billDetails.put("Total Amount", totalAmount);
+        } else if (units <= 500) {
+            billDetails.put("First 100 Units", 0.0);
+            billDetails.put("Next 100 Units:", (100 * 2.25));
+            billDetails.put("Next 200 Units:", (200 * 4.50));
+            billDetails.put("Next 400 Units:", (units - 400) * 6.00);
+            totalAmount = (100 * 2.25) + (200 * 4.50) + (units - 400) * 6.00;
+            billDetails.put("Total Amount", totalAmount);
+        } else {
+            billDetails.put("First 100 Units", 0.0);
+            billDetails.put("Next 100 Units:", (100 * 2.25));
+            billDetails.put("Next 200 Units:", (200 * 4.50));
+            billDetails.put("Next 400 Units:", (100 * 6.00));
+            billDetails.put("Remaining Units:", (units - 500) * 8.00);
+            totalAmount = (100 * 2.25) + (200 * 4.50) + (100 * 6.00) + (units - 500) * 8.00;
+            billDetails.put("Total Amount", totalAmount);
+            billDetails.put("Total", totalAmount);
+
+
         }
-        if (units > 0 && f2) {
-            long temp = Math.min(units, 400);
-            units -= temp;
-            sum += temp * 6.50;
-            f2 = false;
-            map.put(temp + " Units", temp * 6.50);
-        }
-        if (units > 0 && f3) {
-            long temp = Math.min(units, 500);
-            units -= temp;
-            sum += temp * 8.00;
-            f3 = false;
-            map.put(temp + " Units", temp * 8.00);
-        }
-        if (units > 0 && f4) {
-            sum += units * 9.00;
-            f4 = false;
-            map.put(units + " Units", units * 9.00);
-        }
-        map.put("Total", sum);
-        TreeMap<String ,Double> treeMap = map;
-        return treeMap;
+        TreeMap<String, Double> treeMap = billDetails;
+        return billDetails;
     }
 
     @Override
