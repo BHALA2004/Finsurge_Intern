@@ -12,7 +12,7 @@ class TableRun implements Runnable{
     }
 
     public void run(){
-        System.out.println(Thread.currentThread().getName()+" "+number*table);
+        System.out.println(Thread.currentThread().getName()+"   =   "+number*table);
     }
 }
 public class TablesByRunnable {
