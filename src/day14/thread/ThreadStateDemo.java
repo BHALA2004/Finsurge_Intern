@@ -12,7 +12,7 @@ class SampleTask implements Runnable {
             synchronized (this) {
                 // WAITING state
                 System.out.println(Thread.currentThread().getName() + " is now in state: " + Thread.currentThread().getState());
-                wait();
+                this.wait();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -48,17 +48,16 @@ public class ThreadStateDemo {
         System.out.println(t1.getName() + " is in state: " + t1.getState());
 
         t1.start();
-        Thread.sleep(100);  // Small delay to ensure t1 is in RUNNABLE state
+        Thread.sleep(100);
 
-        // RUNNABLE state
-        System.out.println(t1.getName()+" Heyy " + " is in state: " + t1.getState());
+        // Timed Waiting
+        System.out.println(t1.getName() + " is in state: " + t1.getState());
 
-        // TIMED_WAITING and WAITING states will be printed from run() method
 
-        Thread.sleep(2500);  // Allow t1 to enter WAITING state
+        Thread.sleep(2500);
 
-        synchronized (task) {
-            task.notify();  // Notify t1 to resume
+        synchronized (task){
+            task.notify();
         }
 
         t1.join();  // Ensure Thread-1 completes
@@ -76,6 +75,7 @@ public class ThreadStateDemo {
         t3.start();
         Thread.sleep(100);  // Ensure t3 enters BLOCKED state
 
+        System.out.println(t2.getName()+" is in state: "+t2.getState());
         System.out.println(t3.getName() + " is in state: " + t3.getState()); // BLOCKED
 
         t2.join();
