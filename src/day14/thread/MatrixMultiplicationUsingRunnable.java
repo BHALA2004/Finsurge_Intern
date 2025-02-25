@@ -1,14 +1,16 @@
 package day14.thread;
 
-class MatrixMultiplicationRunnable implements Runnable{
+import java.util.Scanner;
+
+class MatrixMultiplicationRunnable implements Runnable {
     int i;
     int j;
-    int[][] arr1 ;
+    int[][] arr1;
     int[][] arr2;
     int[][] arr3;
 
-    public MatrixMultiplicationRunnable(int row, int col, int[][] arr1, int[][] arr2, int[][] arr3){
-        this.i=row;
+    public MatrixMultiplicationRunnable(int row, int col, int[][] arr1, int[][] arr2, int[][] arr3) {
+        this.i = row;
         this.j = col;
         this.arr1 = arr1;
         this.arr2 = arr2;
@@ -16,31 +18,50 @@ class MatrixMultiplicationRunnable implements Runnable{
     }
 
     @Override
-    public void run(){
-        arr3[i][j]=0;
+    public void run() {
+        arr3[i][j] = 0;
         for (int k = 0; k < arr1[0].length; k++) {
-            arr3[i][j]+=arr1[i][k]*arr2[k][j];
+            arr3[i][j] += arr1[i][k] * arr2[k][j];
         }
     }
 }
+
 public class MatrixMultiplicationUsingRunnable {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        int[][] arr1 = {{1,2,3},{4,5,6},{7,8,9}};
-        int[][] arr2 = {{1,2,3},{4,5,6},{7,8,9}};
+        System.out.print("Enter the number of rows: ");
+        int row = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int column = scanner.nextInt();
 
-        Thread[][] threads = new Thread[arr1.length][arr1[0].length];
-        int row = arr1.length;
-        int column  = arr1[0].length;
+        int[][] arr1 = new int[row][column];
+        int[][] arr2 = new int[row][column];
         int[][] result = new int[row][column];
-        for (int i = 0;i<row;i++) {
+
+        System.out.println("Enter elements of first matrix:");
+        for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
-                MatrixMultiplicationRunnable matrixMultiplicationRunnable = new MatrixMultiplicationRunnable(i,j,arr1,arr2,result);
+                arr1[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println("Enter elements of second matrix:");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                arr2[i][j] = scanner.nextInt();
+            }
+        }
+
+        Thread[][] threads = new Thread[row][column];
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                MatrixMultiplicationRunnable matrixMultiplicationRunnable = new MatrixMultiplicationRunnable(i, j, arr1, arr2, result);
                 threads[i][j] = new Thread(matrixMultiplicationRunnable);
                 threads[i][j].start();
             }
         }
-
 
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
@@ -52,13 +73,13 @@ public class MatrixMultiplicationUsingRunnable {
             }
         }
 
-        for(int i = 0;i<result.length;i++){
+
+        for (int i = 0; i < result.length; i++) {
             for (int j = 0; j < result[0].length; j++) {
-                System.out.print(result[i][j]+" ");
+                System.out.print(result[i][j] + " ");
             }
             System.out.println();
         }
-
 
 
     }
