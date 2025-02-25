@@ -47,6 +47,7 @@ class MainSync {
         SyncExample2 syncExample2 = new SyncExample2();
         Thread t1 = new Value1(syncExample2);
         t1.start();
+
         Thread t2 = new Value2(syncExample2);
         t2.start();
     }
