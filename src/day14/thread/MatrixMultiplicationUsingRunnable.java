@@ -36,50 +36,62 @@ public class MatrixMultiplicationUsingRunnable {
         int column = scanner.nextInt();
 
         int[][] arr1 = new int[row][column];
-        int[][] arr2 = new int[row][column];
-        int[][] result = new int[row][column];
 
-        System.out.println("Enter elements of first matrix:");
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                arr1[i][j] = scanner.nextInt();
-            }
+        System.out.print("Enter the number of rows: ");
+        int row1 = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int column1 = scanner.nextInt();
+        int[][] arr2 = new int[row1][column1];
+
+        if(arr1[0].length!=arr2.length){
+            System.exit(0);
         }
+        else {
+            int[][] result = new int[row][column1];
 
-        System.out.println("Enter elements of second matrix:");
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                arr2[i][j] = scanner.nextInt();
-            }
-        }
-
-        Thread[][] threads = new Thread[row][column];
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                MatrixMultiplicationRunnable matrixMultiplicationRunnable = new MatrixMultiplicationRunnable(i, j, arr1, arr2, result);
-                threads[i][j] = new Thread(matrixMultiplicationRunnable);
-                threads[i][j].start();
-            }
-        }
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                try {
-                    threads[i][j].join();
-                } catch (InterruptedException e) {
-                    System.out.println("Interruption");
+            System.out.println("Enter elements of first matrix:");
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column; j++) {
+                    arr1[i][j] = scanner.nextInt();
                 }
             }
-        }
 
-
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < result[0].length; j++) {
-                System.out.print(result[i][j] + " ");
+            System.out.println("Enter elements of second matrix:");
+            for (int i = 0; i < row1; i++) {
+                for (int j = 0; j < column1; j++) {
+                    arr2[i][j] = scanner.nextInt();
+                }
             }
-            System.out.println();
+
+            Thread[][] threads = new Thread[row][column1];
+
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column1; j++) {
+                    MatrixMultiplicationRunnable matrixMultiplicationRunnable = new MatrixMultiplicationRunnable(i, j, arr1, arr2, result);
+                    threads[i][j] = new Thread(matrixMultiplicationRunnable);
+                    threads[i][j].start();
+                }
+            }
+
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column1; j++) {
+                    try {
+                        threads[i][j].join();
+                    } catch (InterruptedException e) {
+                        System.out.println("Interruption");
+                    }
+                }
+            }
+
+
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result[0].length; j++) {
+                    System.out.print(result[i][j] + " ");
+                }
+                System.out.println();
+            }
         }
+
 
 
     }
