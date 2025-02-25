@@ -17,13 +17,13 @@ public class ThreadLifeCycle {
         thread thread = new thread();
         System.out.println(thread.getState());
         thread.start();
-        try
-        {
-            thread.sleep(1000);
-        }
-        catch (Exception e){
-
-        }
+//        try
+//        {
+//            thread.sleep(1000);
+//        }
+//        catch (Exception e){
+//
+//        }
 
         System.out.println(thread.getState());
         try {
