@@ -4,7 +4,7 @@ class thread extends Thread{
     public void run(){
         System.out.println(Thread.currentThread().getState());
         try {
-            Thread.sleep(1000);
+            Thread.sleep(8000);
         }
         catch (Exception e){
             System.out.println("Error");
@@ -17,13 +17,13 @@ public class ThreadLifeCycle {
         thread thread = new thread();
         System.out.println(thread.getState());
         thread.start();
-//        try
-//        {
-//            thread.sleep(1000);
-//        }
-//        catch (Exception e){
-//
-//        }
+        try
+        {
+            thread.sleep(4000);
+        }
+        catch (Exception e){
+
+        }
 
         System.out.println(thread.getState());
         try {
