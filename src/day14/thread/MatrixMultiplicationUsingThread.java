@@ -79,10 +79,5 @@ public class MatrixMultiplicationUsingThread {
                 }
                 System.out.println();
             }
-
-
-
-
-
     }
 }
