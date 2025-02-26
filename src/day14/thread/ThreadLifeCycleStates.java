@@ -1,5 +1,7 @@
 package day14.thread;
 
+import java.util.Map;
+
 class ThreadLifecycleDemo implements Runnable {
     private final Object lock;
 
@@ -49,6 +51,8 @@ public class ThreadLifeCycleStates {
         // Allow t2 to try to acquire lock
         System.out.println(t2.getName() + " is in state: " + t2.getState()); // BLOCKED
 
+
+
         // Notify t1 to move from WAITING -> TIMED_WAITING
         synchronized (lock) {
             lock.notifyAll();
@@ -58,7 +62,6 @@ public class ThreadLifeCycleStates {
         System.out.println(t1.getName() + " is in state: " + t1.getState()); // TERMINATED
 
         t1.join(); // Ensuring t1 completes execution
-         // Ensuring t2 completes execution
 
         System.out.println(t2.getName() + " is in state: " + t2.getState()); // TERMINATED
     }
